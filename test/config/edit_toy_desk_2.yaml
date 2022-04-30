@@ -1,0 +1,13 @@
+---
+
+prefix: null
+chunk: 4096
+img_wh: [320, 240]
+ckpt_path: ../object_nerf_edit_demo_models/toydesk_2/last.ckpt
+total_frames: 32
+test_frame: 124
+edit_type: pure_rotation
+# green rect 5, magic cube 4, bow 7, canddy 2, dragon 1, face 3
+obj_id_list: [1, 2, 3, 5]
+
+use_bbox_for_test: true

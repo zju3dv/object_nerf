@@ -1,0 +1,13 @@
+---
+
+prefix: null
+chunk: 4096
+img_wh: [320, 240]
+ckpt_path: ../object_nerf_edit_demo_models/scannet_0113/last.ckpt
+total_frames: 32
+# test_frame: 181
+test_frame: 159
+edit_type: duplication
+# 4 right sofa; 6: center rectangle chair
+obj_id_list: [4, 4]
+use_bbox_for_test: true

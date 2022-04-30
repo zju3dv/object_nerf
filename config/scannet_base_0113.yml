@@ -1,0 +1,44 @@
+
+---
+dataset_name: scannet_base
+dataset_extra:
+  # rendering params
+  near: 0.3
+  far: 6.0
+  scale_factor: 2.0
+  # when using bbox, this would be overwrited by bbox center
+  scene_center: [2, 2, 0]
+
+  # frame selection via idx
+  train_start_idx: 0
+  train_skip_step: 1
+  train_max_size: 1000
+  validate_idx: 331
+
+  split: datasets/split/scannet_0113_train_0.5
+
+  # object params
+  use_instance_mask: true
+  use_bbox: false
+  use_bbox_only_for_test: true
+  
+  root_dir: data/scannet/scannet_nerf_syn_0113_00_v3/
+  bbox_dir: data/scannet/scannet_train_detection_data/
+  scans_dir: data/scannet/scans
+  scene_id: 'scene0113_00'
+  inst_seg_tag: 'instance-filt'
+
+  val_instance_id: 6
+  instance_id: [6]
+
+  pcd_path: data/scannet/scannet_nerf_syn_0113_00_v3/point_clouds_simplified_clean.ply
+  
+  # parameters for voxel features
+  voxel_size: 0.1
+  neighbor_marks: 3
+
+train:
+  limit_train_batches: 0.15
+
+loss:
+  opacity_loss_weight: 100.0

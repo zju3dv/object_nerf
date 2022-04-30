@@ -1,0 +1,81 @@
+---
+exp_name: exp
+ckpt_path: null
+dataset_name: generic_dataset
+img_wh: [640, 480]
+
+model:
+  use_voxel_embedding: true
+  # model config
+  N_freq_xyz: 10
+  N_freq_dir: 4
+  N_freq_voxel: 6
+  # specific for object branch
+  D: 8
+  W: 256
+  skips: [4]
+  N_scn_voxel_size: 16
+  # specific for object branch
+  inst_D: 4
+  inst_W: 128
+  inst_skips: [2]
+  N_obj_voxel_size: 8
+
+  # rendering options
+  N_samples: 64
+  # N_importance: 128
+  N_importance: 64
+  frustum_bound: 0.05
+  use_disp: false
+  perturb: 1
+  noise_std: 1
+  use_mask: true
+  N_vocab: 1000
+  N_max_objs: 64
+  N_obj_code_length: 64
+  N_max_voxels: 800000
+
+train:
+  progressive_train: false
+  batch_size: 2048
+  chunk: 32768
+  num_epochs: 30
+  num_gpus: 1
+  optimizer: adam
+  # lr: 0.0005
+  lr: 1.0e-3
+  momentum: 0.9
+  weight_decay: 0
+  # lr_scheduler: steplr
+  lr_scheduler: poly
+  warmup_multiplier: 1
+  warmup_epochs: 0
+  decay_step:
+  - 20
+  decay_gamma: 0.1
+  poly_exp: 2
+
+prefixes_to_ignore:
+- loss
+
+loss:
+  color_loss_weight: 1.0
+  depth_loss_weight: 0.1
+  opacity_loss_weight: 1.0
+  instance_color_loss_weight: 1.0
+  instance_depth_loss_weight: 0.1
+
+dataset_extra:
+  # frame selection via observation
+  enable_observation_check: true
+  # max observation angle in degree
+  max_obs_angle: 40
+  # max observation distance in meter
+  max_obs_distance: 3.0
+  mask_rebalance_strategy: fg_bg_reweight
+  # mask_rebalance_strategy: distance_transform
+  fg_weight: 1.0
+  bg_weight: 0.05
+  # if visualize with bbox bounded view
+  use_bbox: false
+  use_bbox_only_for_test: false

@@ -1,0 +1,57 @@
+
+---
+dataset_name: scannet_base
+dataset_extra:
+  # rendering params
+  near: 0.3
+  far: 6.0
+  scale_factor: 2.0
+  # when using bbox, this would be overwrited by bbox center
+  scene_center: [3.86804875, 3.61684017, 0.49404248]
+  # scene_center: [0,0,0]
+
+  # for full scene setting
+  # scale_factor: 2.5
+  # scene_center: [3.0,3.0,0.5]
+
+
+  # frame selection via idx
+  train_start_idx: 0
+  train_skip_step: 1
+  train_max_size: 1000
+  validate_idx: 541
+
+  split: datasets/split/scannet_0192_train_0.5
+
+  # object params
+  use_instance_mask: true
+  use_bbox: false
+  use_bbox_only_for_test: true
+  
+  root_dir: data/scannet/scannet_nerf_syn_0192_00_v3/
+  bbox_dir: data/scannet/scannet_train_detection_data/
+  scans_dir: data/scannet/scans
+  scene_id: 'scene0192_00'
+  inst_seg_tag: 'instance-merge-0301'
+
+  # instance_id: 3 # orange sofa
+  # 3: base sofa, 4 nearby sofa, 6 desk, 2 floor(not complete), 5 far sofa, 7 opposite sofa
+  val_instance_id: 3
+  # instance_id: [3, 4, 6, 2]
+  # instance_id: [3, 4]
+  # instance_id: [3, 4, 5, 7]
+  instance_id: [3]
+
+  # pcd_path: data/scannet/scannet_nerf_syn_0192_00_v3/pointcloud_0.05.ply
+  # pcd_path: data/scannet/scannet_nerf_syn_0192_00_v3/pointcloud_0.03_300k.ply
+  pcd_path: data/scannet/scannet_nerf_syn_0192_00_v3/point_clouds_simplified.ply
+  
+  # parameters for voxel features
+  voxel_size: 0.1
+  neighbor_marks: 3
+
+train:
+  limit_train_batches: 0.10
+
+loss:
+  opacity_loss_weight: 10.0

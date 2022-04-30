@@ -1,0 +1,65 @@
+
+
+---
+dataset_name: toydesk
+dataset_extra:
+  # rendering params
+  # desk real width 1.06m, recon width 8.3
+  near: 0.8
+  far: 24.0
+  # scale_factor: 5.0
+  scale_factor: 16.0
+  # when using bbox, this would be overwrited by bbox center
+  # scene_center: [4, 4, 0]
+  scene_center: [0.2, 1.4, 7.1]
+
+  # frame selection via idx
+  train_start_idx: 0
+  train_skip_step: 1
+  train_max_size: 9999
+  validate_idx: 131
+
+  split: datasets/split/our_desk_2_train_0.8
+
+  enable_observation_check: false
+  # object params
+  use_instance_mask: true
+  use_bbox: false
+  use_bbox_only_for_test: true
+  
+  root_dir: data/toy_desk/our_desk_2
+  bbox_dir: datasets/desk_bbox/desk2/bbox.json
+  # scans_dir: data/scannet/scans
+  # scene_id: 'scene0024_00'
+
+  inst_seg_tag: 'instance'
+  
+  # green rect 5, magic cube 4, bow 7, canddy 2, dragon 1, face 3
+  # val_instance_id: 3
+  val_instance_id: 1
+  # val_instance_id: [1, 2, 3, 3, 4, 5]
+  # val_instance_id: [3]
+  # val_instance_id: [5, 5]
+  # val_instance_id: 5
+  # val_instance_id: [1, 2, 3, 4, 5]
+  # val_instance_id: [4]
+  instance_id: [5, 4, 2, 1, 3]
+
+  # background that cannot be occluders, e.g., floor, ceil, wall
+  bg_instance_id: [0]
+
+  pcd_path: data/toy_desk/our_desk_2/pcd_from_mesh.ply
+  
+  # parameters for voxel features
+  voxel_size: 0.3
+  neighbor_marks: 3
+
+train:
+  limit_train_batches: 0.25
+
+loss:
+  opacity_loss_weight: 10.0
+
+model:
+  frustum_bound: -1 # disabled for ToyDesk data
+  
