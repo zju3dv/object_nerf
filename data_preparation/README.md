@@ -2,13 +2,13 @@
 
 ## ToyDesk Dataset
 
-You can download the data through this [link](https://zjueducn-my.sharepoint.com/:u:/g/personal/ybbbbt_zju_edu_cn/EVgSQo48M6ZNmNqrggYU0qUBqSlAjOTMYn1YuRztdM2uTw?e=icdHdp).
+You can download the data through this [link](https://www.dropbox.com/s/bdqiv7pc13p6ugp/toydesk_data_full.zip?dl=0).
 
 Please note that the transforms_xxx.json comes with transformation matrix (from camera coordinate to world coordinate) in SLAM / OpenCV format (xyz -> right down forward), thus we need to change to NDC format (xyz -> right up back) when applying to standard NeRF training codes.
 
 ## ScanNet Dataset
 
-If you need all the pre-processed files of ScanNet, please email me (ybbbbt@gmail.com) and show licenses of [ScanNet](https://github.com/ScanNet/ScanNet).
+You can download the pre-processed files through this [link](https://www.dropbox.com/s/k7mxkuone3ucsgd/scannet_object_nerf_data.zip?dl=0).
 
 ### Step 1: Generate ScanNet training frames
 
