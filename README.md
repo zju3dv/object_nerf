@@ -39,7 +39,7 @@ python train.py dataset_config=config/toy_desk_2.yml "img_wh=[640,480]" exp_name
 
 ## Editable Scene Rendering
 
-Here we provide two examples of scene editing with pre-trained models ([download link](https://zjueducn-my.sharepoint.com/:u:/g/personal/ybbbbt_zju_edu_cn/EXHxpYHvEKNGgvCmMqT3Gk8BN80uEFSyqwq0R84d_cnH1Q?e=oipDsn)).
+Here we provide two examples of scene editing with pre-trained models ([download link](https://www.dropbox.com/scl/fi/kz5r1y3pct8uvzmog22hl/object_nerf_edit_demo_models.zip?rlkey=e06i0y3m3uwocnxk0wrf10m62&dl=0)).
 
 ### ScanNet Object Duplicating and Moving
 
